@@ -6,12 +6,14 @@ Endpoints:
     * [`/find`](#finding-an-employee)
     * [`/update`](#updating-an-employee)
     * [`/delete`](#deleting-an-employee)
+    * [`/all`](#getting-all-employees)
 * [`/api/dept`](#department-endpoint)
     * [`/create`](#creating-a-department)
     * [`/find`](#finding-a-department)
     * [`/update`](#updating-a-department)
     * [`/delete`](#deleting-a-department)
     * [`/getEmployees`](#getting-all-employees-in-a-department)
+    * [`/all`](#getting-all-departments)
     
 ## Employee Endpoint
 <p id="employee-endpoint"></p>
@@ -64,6 +66,10 @@ OR
 Endpoint: `/api/employee/detele/{empId}`<br>
 Method: `DELETE`
 
+### Getting all Employees
+Endpoint: `/api/employee/all`<br>
+Method: `GET`
+
 ## Department Endpoint
 Endpoint: `/api/dept`<br>
 All endpoints to perform operations on departments start with this pattern.
@@ -99,4 +105,8 @@ Method: `DELETE`
 
 ### Getting all employees in a Department
 Endpoint: `/api/dept/getEmployees?deptId=<deptId>`<br>
+Method: `GET`
+
+### Getting all departments
+Endpoint: `/api/dept/all`<br>
 Method: `GET`
