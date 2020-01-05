@@ -31,8 +31,8 @@ public class DepartmentController {
 	public @ResponseBody
 	Department createDept(@RequestBody Map<String, String> requestParams){
 		logger.info("Received request to create department "+requestParams.get(DEPT_NAME));
-		Department department = departmentService.createDepartment(requestParams.get(DEPT_NAME));
-		return department;
+		Optional<Department> optionalDepartment = departmentService.createDepartment(requestParams.get(DEPT_NAME));
+		return optionalDepartment.get();
 	}
 
 	@GetMapping(path = "/find")

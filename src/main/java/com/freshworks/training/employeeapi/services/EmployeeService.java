@@ -54,10 +54,7 @@ public class EmployeeService {
 		Optional<Employee> optionalEmployee = employeeRepository.findById(empId);
 		if (optionalEmployee.isPresent()){
 			logger.info("Employee Found. Deleting.");
-			Department department = optionalEmployee.get().getDepartment();
 			employeeRepository.delete(optionalEmployee.get());
-			department.setEmpCount(department.getEmpCount()-1);
-			departmentRepository.save(department);
 			return true;
 		} else {
 			logger.info("Employee not found.");

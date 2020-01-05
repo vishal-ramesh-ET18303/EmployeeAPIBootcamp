@@ -18,19 +18,19 @@ public class DepartmentService {
 
 	private Logger logger = LoggerFactory.getLogger(DepartmentService.class);
 
-	public Department createDepartment(String name){
+	public Optional createDepartment(String name){
 		logger.info("Trying to find department "+name);
 		Optional<Department> optionalDepartment = departmentRepository.findByDeptName(name);
 		if (optionalDepartment.isPresent()){
 			logger.info("Department found.");
-			return optionalDepartment.get();
+			return optionalDepartment;
 		} else {
 			logger.info("Department not found. Creating.");
 			Department department = new Department();
 			department.setDeptName(name);
 			department.setEmpCount(0);
 			department = departmentRepository.save(department);
-			return department;
+			return Optional.of(department);
 		}
 	}
 
