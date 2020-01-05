@@ -72,4 +72,9 @@ public class EmployeeController {
 		}
 	}
 
+	@GetMapping(path = "/all")
+	public @ResponseBody Iterable getAllEmployees(){
+		return employeeService.getAllEmployees();
+	}
+
 }

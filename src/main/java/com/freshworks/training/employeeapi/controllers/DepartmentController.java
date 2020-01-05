@@ -60,4 +60,9 @@ public class DepartmentController {
 		return optionalEmployees.map(set -> new ResponseEntity(set, HttpStatus.OK)).orElseGet(() -> new ResponseEntity("Department not found", HttpStatus.NOT_FOUND));
 	}
 
+	@GetMapping(path = "/all")
+	public @ResponseBody Iterable getAllDepartments(){
+		return departmentService.getAllDepartments();
+	}
+
 }

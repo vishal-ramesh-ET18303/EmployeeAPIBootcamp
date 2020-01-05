@@ -32,9 +32,13 @@ public class Department {
 	@JsonIgnore
 	private Set<Employee> employees;
 
+	@Transient
+	private int empCount;
+
 	public Department(String deptName, Employee... employees) {
 		this.deptName = deptName;
 		this.employees = Stream.of(employees).collect(Collectors.toSet());
 		this.employees.forEach(e -> e.setDepartment(this));
+		empCount = 0;
 	}
 }
