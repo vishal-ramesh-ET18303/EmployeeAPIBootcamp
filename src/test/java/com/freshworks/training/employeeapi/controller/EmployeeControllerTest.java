@@ -81,7 +81,7 @@ public class EmployeeControllerTest {
 		)).thenReturn(entity);
 	}
 
-	private void mockReadExchange(){
+	/*private void mockReadExchange(){
 		ResponseEntity<Employee> entity = new ResponseEntity(new Employee(), HttpStatus.OK);
 		Mockito.when(restTemplate.exchange(
 				Mockito.matches("./employee/find"),
@@ -98,13 +98,15 @@ public class EmployeeControllerTest {
 				Mockito.any(),
 				Mockito.<Class<String>>any()
 		)).thenReturn(new ResponseEntity<>("", HttpStatus.OK));
-	}
+	}*/
 
 	@Test
 	public void testCreate() throws JSONException {
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("empName", 1);
 		jsonObject.put("deptId", 1);
+
+		mockCreateUpdateExchange();
 
 		HttpEntity<String> httpEntity = new HttpEntity<>(jsonObject.toString(), httpHeaders);
 
